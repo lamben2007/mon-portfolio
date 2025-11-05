@@ -2,6 +2,7 @@ import Link from "next/link";
 import "./globals.css";
 import { ReactNode } from "react";
 
+
 export const metadata = {
   title: "Mon Portfolio",
   description: "Portfolio personnel créé avec Next.js et Tailwind CSS",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </header>
 
         <main className="min-h-screen p-8">{children}</main>
+
 
         <footer className="text-center py-6 text-sm text-gray-500 border-t">
           © {new Date().getFullYear()} Mon Portfolio – Tous droits réservés

@@ -1,8 +1,16 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <section className="text-center space-y-6 border border-black">
+    <motion.section
+      className="text-center space-y-6"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
       <h2 className="text-3xl font-bold mt-8">Bienvenue sur mon portfolio 👋</h2>
       <p className="max-w-2xl mx-auto text-gray-600">
         Je suis un développeur passionné, spécialisé dans la création
@@ -14,6 +22,6 @@ export default function HomePage() {
       >
         Voir mes projets
       </Link>
-    </section>
+    </motion.section>
   );
 }
