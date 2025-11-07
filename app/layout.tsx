@@ -1,17 +1,29 @@
 import Link from "next/link";
 import "./globals.css";
 import { ReactNode } from "react";
+import Footer from "./components/Footer";
+import { Poppins } from "next/font/google";
 
 
+//
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "swap",
+});
+
+//
 export const metadata = {
   title: "Mon Portfolio",
   description: "Portfolio personnel créé avec Next.js et Tailwind CSS",
 };
 
+
+//
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
-      <body className="bg-gray-50 text-gray-800 font-sans">
+      <body className={`${poppins.className} bg-white text-gray-800`}   >
         <header className="flex justify-between items-center p-4 bg-white shadow">
           <h1 className="text-xl font-bold">Mon Portfolio</h1>
           <nav className="space-x-4">
@@ -31,7 +43,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
 
         <footer className="text-center py-6 text-sm text-gray-500 border-t">
-          © {new Date().getFullYear()} Mon Portfolio – Tous droits réservés
+          <Footer />
         </footer>
       </body>
     </html>

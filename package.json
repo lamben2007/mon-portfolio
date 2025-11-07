@@ -1,6 +1,6 @@
 {
   "name": "mon-portfolio",
-  "version": "Version du 06/11/2025",
+  "version": "Version du 07/11/2025",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -13,6 +13,7 @@
     "next": "16.0.1",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "react-markdown": "^10.1.0",
     "sass": "^1.93.3"
   },
   "devDependencies": {
