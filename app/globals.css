@@ -42,11 +42,32 @@ body {
   margin: 20px 0 20px 0;
 }
 
+.h2-projects-custom {
+  color: #000;
+  border-radius: 40px 0px;
+  padding: 10px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.29);
+  width: 100%;
+  box-shadow: 4px 4px 10px gray;
+  background: #adc6eb;
+  text-align: center;
+  font-size: 18px;
+  margin: 20px 0 20px 0;
+}
+
 /* Desktop / tablette*/
 @media (min-width: 768px) {
   .h2-custom {
     font-size: 32px;
     padding: 20px;
+    /* background: red; */
+  }
+
+  .h2-projects-custom {
+    font-size: 32px;
+    padding: 5px;
     /* background: red; */
   }
 }

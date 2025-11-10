@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import ReactMarkdown from 'react-markdown';
-import ParagraphWithShapes from "./ParagraphWithShapes";
+// import ParagraphWithShapes from "./ParagraphWithShapes";
 
 
 export default function HomeIntro() {
