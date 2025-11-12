@@ -27,17 +27,6 @@ function Footer() {
         window.open("https://www.linkedin.com/in/benoit-lamour/", "_blank", "noopener,noreferrer");
     };
 
-    // Permet de rediriger vers la page Contact
-    // const handleClickContact = () => {
-    //     navigate("/contact");
-    // };
-
-    // Permet d'ouvrir le CV au format PDF
-    // const handleClickOpenPDF = () => {
-    //     window.open(myCV, "_blank");
-    // };
-
-
     //Rendu
     return (
 
@@ -50,6 +39,7 @@ function Footer() {
                         src="/images/home2.webp"
                         alt="Photo illustration"
                         fill
+                        sizes='200px'
                         className="object-cover rounded-full border-4 border-white"
                     />
                 </div>

@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 import { Project } from "@/app/data/projects";
 import MotionSection from "./MotionSection";
+import ProjectCarousel from "./ProjectCarousel";
 
 //
 type ProjectClientProps = {
@@ -51,7 +52,7 @@ export default function ProjectClient({ project }: ProjectClientProps) {
 
             {/* Réalisation effectuées */}
             <MotionSection delay={2}>
-                <h2 className="h2-projects-custom">Réalisation effectuées</h2>
+                <h2 className="h2-projects-custom">Réalisations effectuées</h2>
                 <ReactMarkdown
                     components={{
                         ul: ({ children }) => (
@@ -84,7 +85,8 @@ export default function ProjectClient({ project }: ProjectClientProps) {
             <MotionSection delay={4}>
                 <h2 className="h2-projects-custom">Aperçus des interfaces</h2>
 
-                A COMPLETER
+                <ProjectCarousel images={project.previews||[]}/>
+
             </MotionSection>
 
 
