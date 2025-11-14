@@ -51,14 +51,13 @@ export default function HomeIntro() {
                         viewport={{ once: true, amount: 0.4 }}
                         className="text-gray-700 dark:text-gray-300"
                     >
-
-                        <div className="flex flex-col items-center gap-2.5">
+                        <div className="flex flex-col items-center gap-2.5 relative">
 
                             {/* Carré animé */}
                             <motion.div
                                 initial={{ rotate: 0, scale: 0, opacity: 0 }}
                                 whileInView={{
-                                    rotate: 765, // 720° (2 tours) + 45° finale
+                                    rotate: 765,
                                     scale: 1,
                                     opacity: 1,
                                 }}
@@ -68,17 +67,16 @@ export default function HomeIntro() {
                                     delay: i * 0.2,
                                 }}
                                 viewport={{ once: true }}
-                                className="w-5 h-5 bg-blue-500  mt-1 rounded-md shrink-0 shadow-lg shadow-gray-400/80 drop-shadow-md"
+                                className="w-5 h-5 bg-blue-500 mt-1 rounded-md shrink-0 shadow-lg shadow-gray-400/80 drop-shadow-md"
                             />
 
-                            {/* <ParagraphWithShapes text={""} /> */}
                             <ReactMarkdown>{text}</ReactMarkdown>
-
                         </div>
 
-                    </motion.div>
+
+                    </motion.div >
                 );
             })}
-        </section>
+        </section >
     );
 }

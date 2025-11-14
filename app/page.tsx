@@ -3,9 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Skills from "./components/Skills";
-import HomeIntro from "./components/HomeIntro";
-import ParagraphWithShapes from "./components/ParagraphWithShapes";
-
+import { HomeSection2 } from "./components/HomeSection2";
 
 
 //
@@ -21,10 +19,11 @@ export default function HomePage() {
 
       <div className="flex flex-col gap-2.5">
 
+        {/* Section 1 */}
         <section className="relative">
 
           <Image
-            src="/images/home2.webp"
+            src="/images/p3.webp"
             alt="picHome2"
             width={400}
             height={300}
@@ -32,7 +31,7 @@ export default function HomePage() {
           />
 
           <motion.h1
-            className="absolute top-5 right-5 flex items-center justify-center
+            className="absolute bottom-5 right-5 flex items-center justify-center
                text-black text-sm md:text-4xl bg-white/70 font-bold drop-shadow-lg, p-2.5"
             initial={{ x: "100%", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -43,36 +42,15 @@ export default function HomePage() {
 
         </section>
 
-        <section className="flex flex-col gap-2.5 items-center">
 
-          <h2 className="h2-custom">Passionné par l’Informatique et le Développement</h2>
-
-          <div className="flex flex-row items-center gap-[50px] mx-2.5 md:px-[250px]">
-
-            <div className="h-[400px] hidden md:block">
-              <Image
-                src="/images/home2.webp"
-                alt="picHome2"
-                width={300}
-                height={300}
-                className=" object-cover"
-              />
-            </div>
-
-            <div className="w-full text-[14px] flex flex-col gap-5   md:text-[20px] md:text-justify">
-              {/* <ParagraphWithShapes text={"Depuis toujours, le développement informatique est une véritable passion pour moi. Mon parcours a commencé très jeune, avec la programmation en Basic sur un ordinateur familial MSX, où je créais mes premiers petits jeux. Cette curiosité m'a naturellement conduit à explorer différentes technologies telles que Turbo Pascal, C et Visual Basic 6."} /> */}
-
-              <HomeIntro />
-            </div>
-
-          </div>
-
-        </section>
+        {/* Section 2 */}
+        <HomeSection2 />
 
 
+        {/* Section 3 */}
         <section>
           <Image
-            src="/images/home.webp"
+            src="/images/p4.webp"
             alt="picHome2"
             width={400}
             height={300}
@@ -80,11 +58,15 @@ export default function HomePage() {
           />
         </section>
 
+
+        {/* Section 4 */}
         <section className='skills'>
           <h2 className="h2-custom">COMPETENCES</h2>
           <Skills />
         </section>
 
+
+        {/* Section 5 */}
         <section className='flex flex-col items-center'>
 
           <h2 className="h2-custom">FORMATIONS</h2>

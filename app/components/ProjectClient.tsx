@@ -25,7 +25,37 @@ export default function ProjectClient({ project }: ProjectClientProps) {
 
     //
     return (
-        <section className="max-w-3xl mx-auto space-y-6 p-5">
+        <section className="relative max-w-3xl mx-auto space-y-6 p-5">
+
+
+
+            <div className="absolute inset-0 -z-10 pointer-events-none">
+
+                {/* Carré arrondi */}
+                <div
+                    className="absolute top-[400px] left-[-10%] w-20 h-20 bg-green-400/30 rounded-xl shape-float"
+                />
+
+                {/* Rond */}
+                <div
+                    className="absolute bottom-16 right-[50%] w-20 h-20 bg-pink-400/40 rounded-full shape-float"
+                    style={{ animationDelay: "2s" }}
+                />
+
+                {/* Triangle */}
+                <div
+                    className="absolute top-[500px] right-[-10%] w-0 h-0
+                                        border-l-40 border-l-transparent
+                                        border-r-40 border-r-transparent
+                                        border-b-70 border-b-purple-400/40
+                                        shape-float"
+                    style={{ animationDelay: "4s" }}
+                />
+            </div>
+
+
+
+
 
             {/* Titre */}
             <h1 className="text-4xl font-bold text-center">{project.title}</h1>
@@ -85,7 +115,7 @@ export default function ProjectClient({ project }: ProjectClientProps) {
             <MotionSection delay={4}>
                 <h2 className="h2-projects-custom">Aperçus des interfaces</h2>
 
-                <ProjectCarousel images={project.previews||[]}/>
+                <ProjectCarousel images={project.previews || []} />
 
             </MotionSection>
 
