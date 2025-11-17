@@ -22,22 +22,36 @@ export default function ContactPage() {
     // État pour indiquer si un envoi est en cours
     const [isSending, setIsSending] = useState(false);
 
+    // État pour gérer les erreurs de validation
+    const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
     // Référence du formulaire pour envoi via emailjs
     const form = useRef<HTMLFormElement>(null);
 
     // Gère la modification des champs du formulaire
-    const handleChange = (e: { target: { name: string; value: string; }; }) => {
-        // const handleChange = (e) => {
-
-
-        // console.log("e.target:", e.target.name)
-
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+        setErrors(prev => {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const { [e.target.name]: _, ...rest } = prev;
+            return rest;
+        });
     };
 
+    // Validation centralisée du formulaire
+    const validate = () => {
+        const newErrors: { [key: string]: string } = {};
+        if (!formData.name.trim()) newErrors.name = "Le nom est obligatoire";
+        if (!formData.firstname.trim()) newErrors.firstname = "Le prénom est obligatoire";
+        if (!formData.email.trim()) newErrors.email = "L'email est obligatoire";
+        else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "L'email n'est pas valide";
+        if (!formData.company.trim()) newErrors.company = "La société est obligatoire";
+        if (!formData.message.trim()) newErrors.message = "Le message est obligatoire";
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
 
-
-    //
+    // Variables d'environnement EmailJS
     const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
     const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
     const userID = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
@@ -46,48 +60,36 @@ export default function ContactPage() {
         throw new Error("Please check your environment variables.");
     }
 
-
     // Gère l'envoi du formulaire et l'envoi de l'email via emailjs
-    const sendEmail = (e: { preventDefault: () => void; }) => {
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (!validate()) return;
+        setIsSending(true);
+        setStatusMessage("Message en cours d'envoi...");
 
-        //
-        e.preventDefault(); // Empêche le rechargement de la page lors de la soumission du formulaire
-        setIsSending(true); // Indique que l'envoi est en cours
-        setStatusMessage("Message en cours d'envoi..."); // Affiche un message d'attente
-
-
-        // Vérifie que form.current n'est pas null AVANT de l'utiliser
         if (!form.current) {
             setStatusMessage("Erreur : le formulaire n’est pas accessible.");
             setIsSending(false);
             return;
         }
-
-        // Capture dans une variable locale
         const currentForm = form.current;
 
         //
-        emailjs.sendForm(
-            serviceID,
-            templateId,
-            currentForm,
-            userID
-        )
-            .then((result) => {
-                console.log("Email envoyé avec succès :", result);
+        emailjs
+            .sendForm(serviceID, templateId, currentForm, userID)
+            .then(() => {
                 setStatusMessage("Votre message a été envoyé avec succès.");
                 setFormData({ name: "", firstname: "", email: "", company: "", message: "" });
                 currentForm.reset();
+                setErrors({}); // Réinitialiser les erreurs après succès
             })
-            .catch((error) => {
-                console.log("Échec envoi email", error);
+            .catch(() => {
                 setStatusMessage("Une erreur est survenue lors de l'envoi de votre message.");
             })
             .finally(() => {
                 setIsSending(false);
             });
     };
-
 
     //
     return (
@@ -99,8 +101,13 @@ export default function ContactPage() {
         >
             <h1 className="text-3xl font-bold">Formulaire de Contact</h1>
 
-            <form ref={form} className="space-y-4 text-left" onSubmit={sendEmail}>
+            {Object.values(errors).length > 0 && (
+                <div className="text-red-600 mb-3">
+                    Merci de corriger les erreurs avant de valider le formulaire.
+                </div>
+            )}
 
+            <form ref={form} className="space-y-4 text-left" onSubmit={sendEmail}>
                 {/* Nom */}
                 <motion.input
                     type="text"
@@ -113,6 +120,7 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                 />
+                {errors.name && <div className="text-red-500 text-sm">{errors.name}</div>}
 
                 {/* Prénom */}
                 <motion.input
@@ -126,6 +134,7 @@ export default function ContactPage() {
                     value={formData.firstname}
                     onChange={handleChange}
                 />
+                {errors.firstname && <div className="text-red-500 text-sm">{errors.firstname}</div>}
 
                 {/* Email */}
                 <motion.input
@@ -139,6 +148,7 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                 />
+                {errors.email && <div className="text-red-500 text-sm">{errors.email}</div>}
 
                 {/* Société */}
                 <motion.input
@@ -152,6 +162,7 @@ export default function ContactPage() {
                     value={formData.company}
                     onChange={handleChange}
                 />
+                {errors.company && <div className="text-red-500 text-sm">{errors.company}</div>}
 
                 {/* Message */}
                 <motion.textarea
@@ -165,6 +176,7 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                 />
+                {errors.message && <div className="text-red-500 text-sm">{errors.message}</div>}
 
                 {/* Bouton Envoyer */}
                 <motion.button
@@ -178,9 +190,7 @@ export default function ContactPage() {
                 </motion.button>
             </form>
 
-
             {/* Message de statut après l'envoi */}
-            {/* {statusMessage && <Alert className="mt-3" variant={isSending ? "info" : "success"}>{statusMessage}</Alert>} */}
             {statusMessage && <span>{statusMessage}</span>}
 
         </motion.section>
