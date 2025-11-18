@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Project } from "@/app/data/projects";
 import MotionSection from "./MotionSection";
 import ProjectCarousel from "./ProjectCarousel";
+import Image from "next/image";
 
 //
 type ProjectClientProps = {
@@ -27,8 +28,46 @@ export default function ProjectClient({ project }: ProjectClientProps) {
     return (
         <section className="relative max-w-3xl mx-auto space-y-6 p-5">
 
+            {/* Images latérales - visibles uniquement sur desktop */}
+            <div className="hidden lg:block fixed left-[30%] top-[10%] h-[800px] w-[800px] opacity-10 pointer-events-none -z-10" aria-hidden="true">
+                <Image
+                    src="/images/p2.webp"
+                    alt=""
+                    fill
+                    style={{ objectFit: "contain" }}
+                    priority={false}
+                    sizes="200px"
+                />
+            </div>
 
 
+            <div className="hidden lg:block fixed left-[50px] top-60 h-[400px] w-[400px] opacity-30 pointer-events-none -z-10" aria-hidden="true">
+                <Image
+                    src="/images/p2.webp"
+                    alt=""
+                    fill
+                    style={{ objectFit: "contain" }}
+                    priority={false}
+                    sizes="200px"
+                    loading="eager"
+                />
+            </div>
+
+
+            <div className="hidden lg:block fixed right-5 top-60 h-[400px] w-[400px] opacity-30 pointer-events-none -z-10" aria-hidden="true">
+                <Image
+                    src="/images/p2.webp"
+                    alt=""
+                    fill
+                    style={{ objectFit: "contain" }}
+                    priority={false}
+                    sizes="180px"
+                />
+            </div>
+
+
+
+            {/* Formes flottantes */}
             <div className="absolute inset-0 -z-10 pointer-events-none">
 
                 {/* Carré arrondi */}
@@ -52,9 +91,6 @@ export default function ProjectClient({ project }: ProjectClientProps) {
                     style={{ animationDelay: "4s" }}
                 />
             </div>
-
-
-
 
 
             {/* Titre */}

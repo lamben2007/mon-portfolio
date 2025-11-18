@@ -32,7 +32,7 @@ export default function HomePage() {
 
           <motion.h1
             className="absolute bottom-5 right-5 flex items-center justify-center
-               text-black text-sm md:text-4xl bg-white/70 font-bold drop-shadow-lg, p-2.5"
+               text-black text-sm md:text-4xl bg-white/80 font-bold drop-shadow-lg, p-2.5"
             initial={{ x: "100%", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
