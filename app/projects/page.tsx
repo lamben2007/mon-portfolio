@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { projects } from "../data/projects";
 import Link from "next/link";
 import Image from "next/image";
+import Logo from "../components/Logo";
 
 
 export default function ProjectsPage() {
@@ -43,11 +44,9 @@ export default function ProjectsPage() {
 
                                 <h2 className="text-xl font-semibold p-2.5 text-center h2-projects-custom">{project.title}</h2>
 
-                                <div className="flex flex-row gap-2.5 flex-wrap">{
+                                <div className="flex flex-row gap-2.5 flex-wrap items-center p-4">{
                                     project.technologies.map((techno, index) => {
-                                        return <div key={index} className=" border-black rounded-sm px-2 py-sm text-white bg-blue-500">
-                                            {techno}
-                                        </div>
+                                        return <Logo key={index} name={techno} />
                                     })}
                                 </div>
 
@@ -55,8 +54,8 @@ export default function ProjectsPage() {
                                     <Image
                                         src={project.previews?.[0] ? project.previews[0] : "/images/p2.webp"}
                                         alt="picProject"
-                                        width={250}
-                                        height={250}
+                                        width={500}
+                                        height={500}
                                         className="w-full h-24 md:h-[250px] object-cover"
                                     />
                                 </div>

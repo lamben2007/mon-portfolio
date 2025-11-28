@@ -6,6 +6,7 @@ import { Project } from "@/app/data/projects";
 import MotionSection from "./MotionSection";
 import ProjectCarousel from "./ProjectCarousel";
 import Image from "next/image";
+import Logo from "./Logo";
 
 //
 type ProjectClientProps = {
@@ -134,14 +135,18 @@ export default function ProjectClient({ project }: ProjectClientProps) {
             {/* Technologies utilisées */}
             <MotionSection delay={3}>
                 <h2 className="h2-projects-custom">Technologies utilisées</h2>
-                <div className="flex flex-wrap gap-2 mt-2">
+                <div className="flex flex-wrap gap-2 mt-2 justify-center">
                     {project.technologies.map((tech, index) => (
-                        <span
-                            key={index}
-                            className="px-3 py-1 bg-gray-200 rounded-full text-sm"
-                        >
-                            {tech}
-                        </span>
+
+                        <Logo key={index} name={tech} />
+
+
+                        // <span
+                        //     key={index}
+                        //     className="px-3 py-1 bg-gray-200 rounded-full text-sm"
+                        // >
+                        //     {tech}
+                        // </span>
                     ))}
                 </div>
             </MotionSection>

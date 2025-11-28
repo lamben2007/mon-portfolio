@@ -15,7 +15,7 @@ export const projects: Project[] = [
         slug: "app-location-immobiliere",
         title: "Application de location immobilière",
         description: "Développement de l'interface utilisateur d'une application immobilière avec React",
-        technologies: ["HTML", "SCSS", "Javascript", "React", "Responsive Design"],
+        technologies: ["html", "scss", "javascript", "react"],
 
         projectObjective: `
         - Créer l'interface utilisateur de l'application de location immobilière en React.
@@ -46,7 +46,7 @@ export const projects: Project[] = [
         slug: "app-notation-livre",
         title: "Application de notation de livres",
         description: "Développement et mise en place du backend de l&apos;application avec une attention particulière à la sécurité des données.",
-        technologies: ["Javascript", "Node JS", "Express", "MongoDB"],
+        technologies: ["javascript", "nodejs", "mongodb"],
         projectObjective: "Concevoir les API permettant d&apos;interagir avec la base de données pour effectuer des opérations CRUD (création, modification, suppression, consultation) sur les livres et gérer les notes des utilisateurs, tout en garantissant un haut niveau de sécurité.",
         completedProjects: `
         - Développement des routes API en concevant et implémentant des endpoints pour la gestion des livres, des utilisateurs et des notes.
@@ -64,7 +64,7 @@ export const projects: Project[] = [
         slug: "app-portfolio-photographe",
         title: "Portfolio d'une Photographe",
         description: "Analyse des performances et optimisation SEO d'un portfolio pour une photographe professionnelle.",
-        technologies: ["SEO", "HTML", "JAVASCRIPT"],
+        technologies: ["seo", "html", "javascript"],
         projectObjective: `
         - Obtenir un site avec les nouvelles fonctionnalités, conforme à la maquette, et des appels API pleinement fonctionnels.
         - Développer la galerie d'images, intégrer les filtres de projets par catégories, créer la page de connexion, le mode Édition ainsi que la modale de mise à jour. Implémenter les requêtes C.R.U.D vers l'API.
@@ -87,7 +87,7 @@ export const projects: Project[] = [
         slug: "app-portfolio-architecte",
         title: "Portfolio - Architecte d'intérieur",
         description: "Un portfolio interactif pour une architecte d'intérieur, offrant aux visiteurs la possibilité de trier les projets par catégorie et permettant à l'architecte de gérer aisément sa galerie en ajoutant, classant ou supprimant des projets",
-        technologies: ["JAVASCRIPT", "HTML", "SCSS"],
+        technologies: ["javascript", "html", "scss"],
         projectObjective: `
         - Avoir Un site fonctionnel intégrant les nouvelles fonctionnalités conformément à la maquette, avec des appels API pleinement opérationnels.
         - Développer la galerie d’images, le système de filtrage des projets par catégorie, la page de connexion, le mode 'Édition' ainsi que la fenêtre modale de mise à jour. Implémenter les requêtes C.R.U.D à l’API.

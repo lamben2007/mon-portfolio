@@ -6,7 +6,7 @@
 import './Footer.scss'
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 
 /**
@@ -30,7 +30,7 @@ function Footer() {
     //Rendu
     return (
 
-        <footer className="divFooter">
+        <footer className="divFooter text-center py-6 text-sm text-gray-500 border-t">
 
             <div className='divFooter1'>
 

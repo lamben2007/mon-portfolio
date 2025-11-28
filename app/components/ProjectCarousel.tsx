@@ -36,7 +36,7 @@ export default function Carousel({ images }: CarouselProps) {
                             alt={`Aperçu ${index + 1}`}
                             width={800}
                             height={500}
-                            className="w-full h-[300px] sm:h-[500px] object-cover"
+                            className="w-full h-[300px] md:h-[200px] object-cover"
                             style={{ height: "auto" }}
                         />
                     </div>
