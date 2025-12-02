@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📁 Mon portfolio — Développeur Web Front-End
 
-## Getting Started
+Bienvenue dans le dépôt de **Mon portfolio**, un site réalisé avec **Next.js** pour présenter mes projets, mon parcours, mes compétences et faciliter la prise de contact via un formulaire dédié.
 
-First, run the development server:
+🌐 **Démo en ligne :** [https://mon-portfolio-seven-plum.vercel.app/](https://mon-portfolio-seven-plum.vercel.app/)
+📦 **Dépôt GitHub :** [https://github.com/lamben2007/mon-portfolio](https://github.com/lamben2007/mon-portfolio)
+
+---
+
+## 🧑‍💻 Présentation
+
+Ce projet est un portfolio personnel développé entièrement par mes soins.
+Il a pour objectifs :
+
+* Présenter quelques-uns de mes projets
+* Mettre en avant mon parcours et mes compétences
+* Rassembler mes formations
+* Proposer un **formulaire de contact** fonctionnel
+
+En tant que développeur, il me semblait naturel de créer moi-même mon propre portfolio afin d’illustrer mes compétences techniques.
+
+---
+
+## 🛠️ Stack & technologies
+
+Le projet est construit avec les technologies suivantes :
+
+### **Technologies principales**
+
+* **Next.js 16**
+* **React 19**
+* **TypeScript**
+* **Tailwind CSS**
+* **Sass**
+* **Framer Motion** (animations)
+
+### **Outils externes / librairies**
+
+* `@emailjs/browser` – gestion de l’envoi d’e-mails pour le formulaire de contact
+* `embla-carousel-react` & `embla-carousel-autoplay` – carrousels de la section projets
+* `lucide-react` – icônes
+* `react-markdown` – rendu Markdown
+
+---
+
+## ✨ Fonctionnalités principales
+
+* Page d’accueil animée
+* Section **Projets** avec mini-carrousels
+* Formulaire de contact fonctionnel (EmailJS)
+* SEO optimisé via Next.js
+* Design **responsive** pour mobile, tablette et desktop
+
+---
+
+## 🚀 Installation & utilisation
+
+### **1. Cloner le dépôt**
+
+```bash
+git clone https://github.com/lamben2007/mon-portfolio.git
+```
+
+### **2. Installer les dépendances**
+
+```bash
+npm install
+```
+
+### **3. Lancer le serveur de développement**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **4. Build de production**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Le projet sera ensuite accessible sur `http://localhost:3000`.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Structure du projet
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Le site contient les pages suivantes :
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* **Accueil**
+* **Projets**
+* **Contact**
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 👤 Auteur
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Développé par Benoît LAMOUR
+
+* GitHub : [https://github.com/lamben2007](https://github.com/lamben2007)
+* LinkedIn : [https://www.linkedin.com/in/benoit-lamour/](https://www.linkedin.com/in/benoit-lamour/)
+

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { projects } from "../../data/projects";
-import ProjectClient from "@/app/components/ProjectClient";
+import ProjectDetails from "@/app/components/ProjectDetails";
 
 type ProjectPageProps = {
     params: { slug: string };
@@ -12,5 +12,5 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
     if (!project) return notFound();
 
-    return <ProjectClient project={project} />;
+    return <ProjectDetails project={project} />;
 }

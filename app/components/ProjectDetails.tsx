@@ -9,12 +9,12 @@ import Image from "next/image";
 import Logo from "./Logo";
 
 //
-type ProjectClientProps = {
+type ProjectDetailsProps = {
     project: Project;
 };
 
 //
-export default function ProjectClient({ project }: ProjectClientProps) {
+export default function ProjectDetails({ project }: ProjectDetailsProps) {
 
     //
     function formatMarkdown(text: string): string {
@@ -44,7 +44,7 @@ export default function ProjectClient({ project }: ProjectClientProps) {
 
             <div className="hidden lg:block fixed left-[50px] top-60 h-[400px] w-[400px] opacity-30 pointer-events-none -z-10" aria-hidden="true">
                 <Image
-                    src="/images/p2.webp"
+                    src="/images/p1.webp"
                     alt=""
                     fill
                     style={{ objectFit: "contain" }}
@@ -57,7 +57,7 @@ export default function ProjectClient({ project }: ProjectClientProps) {
 
             <div className="hidden lg:block fixed right-5 top-60 h-[400px] w-[400px] opacity-30 pointer-events-none -z-10" aria-hidden="true">
                 <Image
-                    src="/images/p2.webp"
+                    src="/images/p5.webp"
                     alt=""
                     fill
                     style={{ objectFit: "contain" }}
@@ -137,16 +137,7 @@ export default function ProjectClient({ project }: ProjectClientProps) {
                 <h2 className="h2-projects-custom">Technologies utilisées</h2>
                 <div className="flex flex-wrap gap-2 mt-2 justify-center">
                     {project.technologies.map((tech, index) => (
-
                         <Logo key={index} name={tech} />
-
-
-                        // <span
-                        //     key={index}
-                        //     className="px-3 py-1 bg-gray-200 rounded-full text-sm"
-                        // >
-                        //     {tech}
-                        // </span>
                     ))}
                 </div>
             </MotionSection>

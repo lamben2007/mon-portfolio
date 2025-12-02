@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import Image from "next/image";
 
 //
 export default function ContactPage() {
@@ -93,106 +94,148 @@ export default function ContactPage() {
 
     //
     return (
-        <motion.section
-            className="max-w-xl mx-auto text-center space-y-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-        >
-            <h1 className="text-3xl font-bold">Formulaire de Contact</h1>
-
-            {Object.values(errors).length > 0 && (
-                <div className="text-red-600 mb-3">
-                    Merci de corriger les erreurs avant de valider le formulaire.
-                </div>
-            )}
-
-            <form ref={form} className="space-y-4 text-left" onSubmit={sendEmail}>
-                {/* Nom */}
-                <motion.input
-                    type="text"
-                    name="name"
-                    placeholder="Nom"
-                    className="w-full border p-3 rounded-lg"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 }}
-                    value={formData.name}
-                    onChange={handleChange}
+        <>
+            {/* Images latérales - visibles uniquement sur desktop */}
+            <div className="hidden lg:block fixed left-[30%] top-[10%] h-[800px] w-[800px] opacity-10 pointer-events-none -z-10" aria-hidden="true">
+                <Image
+                    src="/images/p5.webp"
+                    alt=""
+                    fill
+                    style={{ objectFit: "contain" }}
+                    priority={false}
+                    sizes="400px"
                 />
-                {errors.name && <div className="text-red-500 text-sm">{errors.name}</div>}
+            </div>
 
-                {/* Prénom */}
-                <motion.input
-                    type="text"
-                    name="firstname"
-                    placeholder="Prénom"
-                    className="w-full border p-3 rounded-lg"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 }}
-                    value={formData.firstname}
-                    onChange={handleChange}
+            {/* Formes flottantes */}
+            <div className="absolute inset-0 -z-10 pointer-events-none">
+
+                {/* Carré arrondi */}
+                <div
+                    className="absolute top-50 left-[25%] w-20 h-20 bg-green-400/30 rounded-xl shape-float"
                 />
-                {errors.firstname && <div className="text-red-500 text-sm">{errors.firstname}</div>}
 
-                {/* Email */}
-                <motion.input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    className="w-full border p-3 rounded-lg"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2 }}
-                    value={formData.email}
-                    onChange={handleChange}
+                {/* Rond */}
+                <div
+                    className="absolute bottom-50 right-[50%] w-20 h-20 bg-pink-400/40 rounded-full shape-float"
+                    style={{ animationDelay: "2s" }}
                 />
-                {errors.email && <div className="text-red-500 text-sm">{errors.email}</div>}
 
-                {/* Société */}
-                <motion.input
-                    type="text"
-                    name="company"
-                    placeholder="Société"
-                    className="w-full border p-3 rounded-lg"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2 }}
-                    value={formData.company}
-                    onChange={handleChange}
+                {/* Triangle */}
+                <div
+                    className="absolute top-70 right-[25%] w-0 h-0
+                                        border-l-40 border-l-transparent
+                                        border-r-40 border-r-transparent
+                                        border-b-70 border-b-purple-400/40
+                                        shape-float"
+                    style={{ animationDelay: "4s" }}
                 />
-                {errors.company && <div className="text-red-500 text-sm">{errors.company}</div>}
+            </div>
 
-                {/* Message */}
-                <motion.textarea
-                    name="message"
-                    placeholder="Message"
-                    rows={5}
-                    className="w-full border p-3 rounded-lg"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 }}
-                    value={formData.message}
-                    onChange={handleChange}
-                />
-                {errors.message && <div className="text-red-500 text-sm">{errors.message}</div>}
 
-                {/* Bouton Envoyer */}
-                <motion.button
-                    type="submit"
-                    className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                    disabled={isSending}
-                >
-                    {isSending ? "Envoi en cours..." : "Envoyer"}
-                </motion.button>
-            </form>
+            <motion.section
+                className="max-w-xl mx-auto text-center space-y-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+            >
 
-            {/* Message de statut après l'envoi */}
-            {statusMessage && <span>{statusMessage}</span>}
+                <h1 className="text-3xl font-bold">Formulaire de Contact</h1>
 
-        </motion.section>
+                {Object.values(errors).length > 0 && (
+                    <div className="text-red-600 mb-3">
+                        Merci de corriger les erreurs avant de valider le formulaire.
+                    </div>
+                )}
+
+                <form ref={form} className="space-y-4 text-left" onSubmit={sendEmail}>
+                    {/* Nom */}
+                    <motion.input
+                        type="text"
+                        name="name"
+                        placeholder="Nom"
+                        className="w-full border p-3 rounded-lg"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 }}
+                        value={formData.name}
+                        onChange={handleChange}
+                    />
+                    {errors.name && <div className="text-red-500 text-sm">{errors.name}</div>}
+
+                    {/* Prénom */}
+                    <motion.input
+                        type="text"
+                        name="firstname"
+                        placeholder="Prénom"
+                        className="w-full border p-3 rounded-lg"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 }}
+                        value={formData.firstname}
+                        onChange={handleChange}
+                    />
+                    {errors.firstname && <div className="text-red-500 text-sm">{errors.firstname}</div>}
+
+                    {/* Email */}
+                    <motion.input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        className="w-full border p-3 rounded-lg"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 }}
+                        value={formData.email}
+                        onChange={handleChange}
+                    />
+                    {errors.email && <div className="text-red-500 text-sm">{errors.email}</div>}
+
+                    {/* Société */}
+                    <motion.input
+                        type="text"
+                        name="company"
+                        placeholder="Société"
+                        className="w-full border p-3 rounded-lg"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 }}
+                        value={formData.company}
+                        onChange={handleChange}
+                    />
+                    {errors.company && <div className="text-red-500 text-sm">{errors.company}</div>}
+
+                    {/* Message */}
+                    <motion.textarea
+                        name="message"
+                        placeholder="Message"
+                        rows={5}
+                        className="w-full border p-3 rounded-lg"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 }}
+                        value={formData.message}
+                        onChange={handleChange}
+                    />
+                    {errors.message && <div className="text-red-500 text-sm">{errors.message}</div>}
+
+                    {/* Bouton Envoyer */}
+                    <motion.button
+                        type="submit"
+                        className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                        disabled={isSending}
+                    >
+                        {isSending ? "Envoi en cours..." : "Envoyer"}
+                    </motion.button>
+                </form>
+
+                {/* Message de statut après l'envoi */}
+                {statusMessage && <span>{statusMessage}</span>}
+
+            </motion.section>
+
+        </>
     );
 }
