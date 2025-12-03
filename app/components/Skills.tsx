@@ -9,13 +9,13 @@ function Skills() {
     //
     const skills = [
         "html",
-        "css",
         "scss",
         "tailwindcss",
         "javascript",
         "react",
         "typescript",
         "nextjs",
+        "socketio",
         "redux",
         "nodejs",
         "mongodb",

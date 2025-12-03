@@ -1,6 +1,6 @@
 {
   "name": "mon-portfolio",
-  "version": "Version du 02/12/2025",
+  "version": "Version du 03/12/2025",
   "private": true,
   "scripts": {
     "dev": "next dev",

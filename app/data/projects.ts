@@ -11,6 +11,49 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+
+    {
+        slug: "app-monportfolio2",
+        title: "Mon portfolio version 2 NEXT JS",
+        description: "Mon portfolio version 2, un site réalisé avec Next.js pour présenter mes projets, mon parcours, mes compétences et faciliter la prise de contact via un formulaire dédié.",
+        technologies: ["typescript", "nextjs", "scss", "tailwindcss"],
+        projectObjective: `
+        - Présenter quelques-uns de mes projets
+        - Mettre en avant mon parcours et mes compétences
+        - Rassembler mes formations
+        - Proposer un formulaire de contact fonctionnel
+        `,
+        completedProjects: `
+        - Page d’accueil animée
+        - Section Projets avec mini-carrousels
+        - Formulaire de contact fonctionnel (EmailJS)
+        - SEO optimisé via Next.js
+        - Design responsive pour mobile, tablette et desktop
+        `,
+        previews: ["/images/monportfolioNextjs1.webp"],
+        github: "https://github.com/lamben2007/mon-portfolio"
+    },
+
+    {
+        slug: "app-mydomo2025",
+        title: "Ma domotique (Version Typescript)",
+        description: "myDOMO2025 est un système de domotique développé à titre personnel pour la gestion de l’éclairage et du chauffage de mon domicile.",
+        technologies: ["typescript", "scss", "redux", "nodejs", "socketio", "bootstrap"],
+        projectObjective: `
+        - Gérer l’éclairage et le chauffage de mon domicile.
+        - Créer une application, évolutive et personnalisable basée sur le serveur open-source Domoticz, tout en assurant une interface utilisateur fluide via un écran tactile 10 pouces.
+        `,
+        completedProjects: `
+        - Pilotage des radiateurs électriques (fixes et portatifs)
+        - Commande et supervision de l’éclairage des différentes pièces
+        - Interface tactile locale pour supervision et contrôle manuel
+        - Communication avec périphériques sans fil (protocoles ZWAVE et RTX)
+        - Automatisations basées sur la température, la présence et la luminosité
+        `,
+        previews: ["/images/mydomo1.webp", "/images/mydomo2.webp", "/images/mydomo3.webp"],
+        github: "https://github.com/lamben2007/myDOMO2025"
+    },
+
     {
         slug: "app-location-immobiliere",
         title: "Application de location immobilière",
@@ -102,9 +145,6 @@ export const projects: Project[] = [
         `,
         previews: ["/images/architecte1_preview.webp"],
         github: "https://github.com/lamben2007/Projet3"
-    }
-
-
-
+    },
 
 ];

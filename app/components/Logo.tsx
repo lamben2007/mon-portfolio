@@ -28,6 +28,8 @@ const Logo = ({ name }: { name: string }) => {
         { name: "mysql", urlLogo: "/images/mysql.svg", title: "MySQL" },
         { name: "nextjs", urlLogo: "/images/nextjs.svg", title: "NEXTJS" },
         { name: "seo", urlLogo: "/images/seo.png", title: "SEO" },
+        { name: "socketio", urlLogo: "/images/socketio.svg", title: "SOCKET.IO" },
+        { name: "bootstrap", urlLogo: "/images/reactBootstrap.svg", title: "REACT-BOOTSTRAP" },
     ];
 
     //
@@ -38,10 +40,9 @@ const Logo = ({ name }: { name: string }) => {
     return (
         <div className=''>
             {myLogo ? (
-                <div className='flex flex-col justify-center'>
+                <div className='flex flex-col justify-center items-center gap-5'>
                     <Image
-                        // className="drop-shadow-xl drop-shadow-gray-700"
-                        className='custom-drop-shadow'
+                        className='custom-drop-shadow h-20 w-20'
                         src={myLogo.urlLogo}
                         alt={`logo ${myLogo.name}`}
                         width={80}
